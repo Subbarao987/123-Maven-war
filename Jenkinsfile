@@ -1,6 +1,7 @@
 pipeline {
 
-  agent {label "Master"}
+  agent {label 'Master'}
+  stages {
   stage("cloning from git")
    {
     steps {
@@ -17,6 +18,7 @@ pipeline {
         steps {
         echo "This is a test stage"
   }
+}
 }
 }
 
