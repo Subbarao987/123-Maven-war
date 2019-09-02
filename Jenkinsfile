@@ -18,13 +18,12 @@ pipeline {
 			
 			steps {
 		   echo "am using Maven "
-		   bat(/"%maven%\bin\mvn" -Dmaven.test.failure.ignore clean install/)
+		   bat(/"%M2_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean install/)
 	  }
 	}
-	  stage("Deploy") {
+	  stage("Results") {
 			steps {
-			echo "am using Deploy"
-			deploy adapters: [tomcat8(credentialsId: '7e5721eb-ddb6-4c39-8baa-305ee7c3f325', path: '', url: '')], contextPath: null, war: '**/*war'
+			archiveArtifacts 'target/*.war'
 	  }
 	}
 	}
