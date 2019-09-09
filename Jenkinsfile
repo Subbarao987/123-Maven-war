@@ -15,7 +15,7 @@ pipeline {
 		  stage("Build using Maven"){
 			steps {
 			echo "am using Maven "
-			sh '"%M2_HOME%/bin/mvn" -Dmaven.test.failure.ignore clean install'
+			sh '"/usr/share/maven/bin/mvn" -Dmaven.test.failure.ignore clean install'
 				}
 		  }
 		  stage("Results") {
